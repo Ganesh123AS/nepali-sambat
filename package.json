@@ -1,6 +1,6 @@
 {
   "name": "nepali-sambat",
-  "version": "0.0.20",
+  "version": "0.1.1",
   "description": "React datepicker using Bikram Sambat calendar",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -28,11 +28,15 @@
     "typescript": "^5.4.5"
   },
   "keywords": [
-    "react",
     "datepicker",
     "bikram sambat",
-    "bs-calendar",
+    "bikram",
+    "sambat",
+    "BS",
     "nepali calendar",
+    "nepali",
+    "vikram",
+    "samvat",
     "AD To BS",
     "BS To AD"
   ],
