@@ -1,0 +1,45 @@
+{
+  "name": "nepali-sambat",
+  "version": "1.0.1",
+  "description": "React datepicker using Bikram Sambat calendar",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {}
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --dts --format cjs,esm --target es5",
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@swc/core": "^1.13.1",
+    "@types/node": "^20.12.7",
+    "@types/react": "^18.2.79",
+    "@types/react-dom": "^18.2.25",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5"
+  },
+  "keywords": [
+    "datepicker",
+    "bikram sambat",
+    "bikram",
+    "sambat",
+    "BS",
+    "nepali calendar",
+    "nepali",
+    "vikram",
+    "samvat",
+    "AD To BS",
+    "BS To AD"
+  ],
+  "author": "Ganesh Bhatt",
+  "license": "MIT"
+}
