@@ -1,6 +1,6 @@
 {
   "name": "nepali-sambat",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "React datepicker using Bikram Sambat calendar",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -18,6 +18,10 @@
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ganesh123AS/nepali-sambat"
   },
   "devDependencies": {
     "@swc/core": "^1.13.1",
