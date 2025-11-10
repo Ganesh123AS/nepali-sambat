@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { bsMonthsEng, bsMonthsNep } from "../constants/daysMonths";
 import { addMonths } from "../utils/convertor";
 import type { MonthNavigationProps } from "../types/types";
@@ -13,25 +13,6 @@ export const NavMonth: React.FC<MonthNavigationProps> = ({
 }) => {
   const [showYearDropdown, setShowYearDropdown] = useState(false);
   const [showMonthDropdown, setShowMonthDropdown] = useState(false);
-  const yearDropdownRef = useRef<HTMLDivElement>(null);
-  const selectedYearRef = useRef<HTMLDivElement>(null);
-
-  const toggleYearDropdown = () => {
-    const opening = !showYearDropdown;
-    setShowYearDropdown(opening);
-    if (opening) {
-      requestAnimationFrame(() => {
-        const dropdown = yearDropdownRef.current;
-        const selected = selectedYearRef.current;
-        if (dropdown && selected) {
-          const dropdownHeight = dropdown.offsetHeight;
-          const itemHeight = selected.offsetHeight;
-          const scrollPosition = selected.offsetTop - (dropdownHeight / 2) + (itemHeight / 2);
-          dropdown.scrollTop = scrollPosition;
-        }
-      });
-    }
-  };
 
   const monthNames = lang === "nep" ? bsMonthsNep : bsMonthsEng;
 
@@ -53,8 +34,7 @@ export const NavMonth: React.FC<MonthNavigationProps> = ({
     setShowMonthDropdown(false);
   };
 
-  const currentYear = new Date().getFullYear();
-  const yearOptions = Array.from({ length: 130 }, (_, i) => currentYear - 65 + i);
+  const yearOptions = Array.from({ length: 130 }, (_, i) => 1970 + i);
 
   return (
     <div style={containerStyle}>
@@ -101,14 +81,14 @@ export const NavMonth: React.FC<MonthNavigationProps> = ({
       <div style={{ position: "relative" }}>
         <button
           type="button"
-          onClick={toggleYearDropdown}
+          onClick={() => setShowYearDropdown(!showYearDropdown)}
           style={dropdownButtonStyle}
         >
           {lang === "nep" ? toNepaliLetters(viewDate.year) : viewDate.year}
         </button>
 
         {showYearDropdown && (
-          <div style={dropdownListStyle} ref={yearDropdownRef}>
+          <div style={dropdownListStyle}>
             {yearOptions.map((year) => (
               <div
                 key={year}
@@ -117,7 +97,6 @@ export const NavMonth: React.FC<MonthNavigationProps> = ({
                   ...dropdownItemBaseStyle,
                   ...(viewDate.year === year ? dropdownItemSelectedStyle : {}),
                 }}
-                ref={year === viewDate.year ? selectedYearRef : null}
               >
                 {lang === "nep" ? toNepaliLetters(year) : year}
               </div>
