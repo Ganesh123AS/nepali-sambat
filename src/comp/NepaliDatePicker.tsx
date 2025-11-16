@@ -81,6 +81,7 @@ export const NepaliDatePicker: React.FC<DatePickerProps> = ({
             ? {
                 width: "100%",
                 bottom: "100%",
+                minWidth: 320,
                 marginBottom: 4,
                 position: "absolute",
                 backgroundColor: "white",
@@ -92,6 +93,7 @@ export const NepaliDatePicker: React.FC<DatePickerProps> = ({
             : {
                 width: "100%",
                 top: "100%",
+                minWidth: 320,
                 marginTop: 4,
                 position: "absolute",
                 backgroundColor: "white",
@@ -126,7 +128,7 @@ export const NepaliDatePicker: React.FC<DatePickerProps> = ({
     };
 
     return (
-        <div style={{ ...containerStyle, ...className }}>
+        <div style={{ ...containerStyle, ...className }} ref={containerRef}>
             <div style={inputWrapperStyle}>
                 <DateInput
                     value={selectedDate}
