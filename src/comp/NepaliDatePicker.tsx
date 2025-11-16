@@ -80,6 +80,7 @@ export const NepaliDatePicker: React.FC<DatePickerProps> = ({
         position === "top"
             ? {
                 width: "100%",
+                minWidth: 320,
                 bottom: "100%",
                 minWidth: 320,
                 marginBottom: 4,
@@ -92,6 +93,7 @@ export const NepaliDatePicker: React.FC<DatePickerProps> = ({
             }
             : {
                 width: "100%",
+                minWidth: 320,
                 top: "100%",
                 minWidth: 320,
                 marginTop: 4,
@@ -150,7 +152,7 @@ export const NepaliDatePicker: React.FC<DatePickerProps> = ({
             </div>
 
             {isOpen && (
-                <div style={calendarPositionStyle}>
+                <div style={calendarPositionStyle} ref={containerRef}>
                     <Calendar
                         selectedDate={selectedDate}
                         viewDate={viewDate}
